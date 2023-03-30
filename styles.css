@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Georgia', serif;
+}
+
+header {
+  padding: 20px;
+}
+
+nav {
+  text-align: center;
+}
+
+nav ul {
+  display: inline-flex;
+  list-style-type: none;
+}
+
+nav li {
+  margin-right: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 70px;
+  font-size: 48px;
+}
+
+h3 {
+  margin-top: 50px;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+main {
+  margin: 0 20%;
+}
+
+.collapsible {
+  cursor: pointer;
+  display: block;
+  background-color: #f1f1f1;
+  padding: 10px 15px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.collapsible:after {
+  content: '\002B';
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.collapsible.active:after {
+  content: "\2212";
+}
+
+.collapsible-content {
+  padding: 0 15px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+.collapsible-content img {
+  width: 100%;
+  height: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 50%;
+  padding-right: 100px;
+}
+
+.column ul {
+  list-style-type: none;
+}
+
+.column li {
+  margin-bottom: 10px;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #555;
+  text-decoration: underline;
+}
