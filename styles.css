@@ -5,7 +5,8 @@
 }
 
 body {
-  font-family: 'Georgia', serif;
+  font-family: 'Rubik', sans-serif;
+  text-align:justify
 }
 
 header {
@@ -30,17 +31,19 @@ nav a {
   color: #333;
 }
 
-h1 {
+h1 { 
   text-align: center;
   margin-top: 50px;
-  margin-bottom: 70px;
-  font-size: 48px;
+  margin-bottom: 50px;
+  font-size: 68px;
+  font-family: 'Amatic SC', cursive;
 }
 
 h3 {
   margin-top: 50px;
   font-size: 24px;
   margin-bottom: 10px;
+  line-height: 160%;
 }
 
 main {
@@ -50,22 +53,28 @@ main {
 .collapsible {
   cursor: pointer;
   display: block;
-  background-color: #f1f1f1;
-  padding: 10px 15px;
+  background-color: #ffffff;
+  padding: 0px 0px;
   width: 100%;
   border: none;
   text-align: left;
   outline: none;
   font-size: 16px;
-  margin-top: 5px;
+  margin-top: 4px;
+  font-weight:bold;
+  
 }
 
 .collapsible:after {
   content: '\002B';
-  color: #777;
+  color: #000000;
   font-weight: bold;
   float: right;
-  margin-left: 5px;
+  margin-right: 12px;
+}
+
+.collapsible:hover {
+  color: #ffdc72;
 }
 
 .collapsible.active:after {
@@ -73,11 +82,24 @@ main {
 }
 
 .collapsible-content {
-  padding: 0 15px;
+  padding: 0px 0px;
   max-height: 0;
+  text-align:justify;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  background-color: #f1f1f1;
+  background-color: #ffffff;
+  color:#616161;
+  font-weight:30;
+  font-size: 14px;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+
+
+p.exp-period { 
+  font-size: 12px;
+  color: gray
 }
 
 .collapsible-content img {
@@ -87,12 +109,16 @@ main {
 
 .row {
   display: flex;
-  flex-wrap: wrap;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 .column {
   flex: 50%;
-  padding-right: 100px;
+  padding-right: 20px;
+  text-align:left;
+  flex: 0 0 36%; /* 박스의 너비를 고정하기 위해 flex-basis 값을 설정해줍니다. */
+  
 }
 
 .column ul {
@@ -111,4 +137,65 @@ a {
 a:hover {
   color: #555;
   text-decoration: underline;
+}
+
+.post-box {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: inline-block;
+  white-space: normal;
+  transition: transform 0.3s ease;
+
+}
+.post-box:hover {
+  transform: translateY(-10px);
+}
+
+h4.box-title {
+  color: grey;
+  font-family: Mohave, regular;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.scroll-row {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  width: 100%;
+  scrollbar-width: thin;
+}
+
+.collapsible-date {
+  display: block;
+  color: #888;
+  font-size: 14px;
+  margin-top: 0px;
+}
+
+
+body {
+  /* 기존 스타일 코드들은 그대로 유지하고 아래 한 줄을 추가하세요 */
+  padding-bottom: 50px; /* 원하는 여유 공간 크기로 조절하세요 */
+}
+
+
+/*blog*/
+
+#post1 {
+  margin-bottom: 20px;
+}
+.toc-toggle:before {
+  content: "+";
+  display: block;
+  font-size: 1.5rem;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 auto;
 }
