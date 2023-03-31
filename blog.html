@@ -10,6 +10,45 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Rubik&display=swap" rel="stylesheet">
   <link href="https://fonts.google.com/specimen/Mohave?subset=latin&noto.script=Latn" rel="stylesheet">
+  <link href="https://fonts.google.com/specimen/Zen+Kaku+Gothic+New?category=Serif,Sans+Serif&subset=latin&noto.script=Latn" rel="stylesheet">
+  <style>
+    .months-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+  
+    .highlight-month {
+      color: #ffffff;
+      font-weight: bold;
+    }
+  
+    .future-month {
+      color: #b4aaa1;
+    }
+  
+    .content-available {
+      color: rgb(88, 148, 134);
+    }
+
+    .month-content { 
+      display: none;
+      margin-top: 24px;
+      margin-left: 0%;
+      margin-right: 0%;
+      background-color: #f0f0f0; /* 회색으로 배경색 설정 */
+      padding: 20px; /* 내용 주변에 여백 추가 */
+      border-radius: 5px; /* 모서리를 둥글게 처리 */
+    }
+    .selected-month {
+      color: orange; /* 주황색으로 텍스트 색 설정 */
+      transition: color 0.3s ease-in-out; /* 텍스트 색상 변경 애니메이션 추가 */
+    }
+  </style>
+  
+  
+
 </head>
 <body>
   <header>
@@ -23,41 +62,136 @@
   </header>
   <main>
     <h1>Blog</h1>
-    <button onclick="window.location.href='#table-of-contents'">View Table of Contents</button>
-    <section id="table-of-contents">
-      <h2>Table of Contents</h2>
-      <ul>
-        <li><a href="#post1">Post 1</a></li>
-        <li><a href="#post2">Post 2</a></li>
-        <li><a href="#post3">Post 3</a></li>
-        <li><a href="#post4">Post 4</a></li>
-      </ul>
-    </section>
-    <section id="post1">
-      <h2>Post 1</h2>
-      <p>
-        Post 1 content goes here.
+    <div class="ellipse-container">
+      <div class="ellipse">
+        <div class="post-title">
+          <h2 style="margin-bottom: 28px; text-align: center;">2023</h2>
+        </div>
+      </div>
+    </div>
+    <div class="months-container">
+      <hr>
+      <span id="month-1">JAN</span>
+      <hr>
+      <span id="month-2">FEB</span>
+      <hr>
+      <span id="month-3">MAR</span>
+      <hr>
+      <span id="month-4">APR</span>
+      <hr>
+      <span id="month-5">MAY</span>
+      <hr>
+      <span id="month-6">JUN</span>
+      <hr>
+      <span id="month-7">JUL</span>
+      <hr>
+      <span id="month-8">AUG</span>
+      <hr>
+      <span id="month-9">SEP</span>
+      <hr>
+      <span id="month-10">OCT</span>
+      <hr>
+      <span id="month-11">NOV</span>
+      <hr>
+      <span id="month-12">DEC</span>
+      <hr>
+    </div>
+    <div id="content-1" class="month-content" style="display:none;">
+      <p style="margin-bottom: 18px; font-weight: bolder; font-size: 18px;">1. AIED-CON Gold Award</p>
+      <p style="font-family: 'Kaku';">I prepared a lesson plan that combines computer vision and physical education for AIED-CON at SNU.
+      <br>As someone who doesn't know much about the sport of basketball, I found that asking a friend of mine to give me some feedback was very helpful in the process. 
+      While working on the project, I was reminded of the AI convergence education workshop I participated in last month, where a current elementary school teacher said that there are very few AI tools that teachers can apply to the school site. I prepared a lesson plan assuming that the teacher's digital competence is sufficient, but it is definitely not an easy task considering the actual situation. It was a good experience for me as a researcher who needs to understand good users, from collecting data to thinking about how to analyze the video and how to show it. It was also an opportunity for me to gain confidence that the path I was on was the right one for me.
+      I can't wait to find out more about what PE teachers need and want to use the tool in their classrooms in the second quarter of this year. </p>
+        
+      <p style="margin-bottom: 18px; margin-top: 18px; font-weight: bolder; font-size: 18px;"> 2. Prj-AIPE Kickoff Meeting </p>
+      <p style="font-family: 'Kaku';">On the 11th, I went to my professor's lab for the first time in a long time for the 23-1 semester kickoff meeting.
+      <br>The first draft of the plan was just interviews + surveys, but the professor suggested focus groups and co-design. I think it will be an interesting session by gathering current physical education teachers. Since it is related to my major, I have a professor to ask for help, and I am expecting that teachers who were interested in IoT will be interested in AI, so it will not be an extreme process. However, it's a methodology that I've never done before, so it seems very important to plan without any loopholes first. 
       </p>
-    </section>
-    <section id="post2">
-      <h2>Post 2</h2>
-      <p>
-        Post 2 content goes here.
+      <p style="font-family: 'Kaku'; margin-top: 8px;">+ Attend the poster presentation<br>Today, January 19, I took some time out of the day to go to a poster presentation of last semester's independent study teams. I realized that I have a lot of different interests, and I'm really grateful that there is such a place for academic exchange. There are many topics that I need to think about how to make my research impactful, and as an audience member, it's very important to see how the presenters convey their research in speeches and posters. It was an impressive time, and I hope that in a few months, I will be able to inspire someone with my research.    
+      </p>  
+
+      <p style="margin-bottom: 18px; margin-top: 18px;  font-weight: bolder; font-size: 18px;">  3. Completing the intern research recording task</p>
+      <p style="font-family: 'Kaku';">Almost a month of recording with 20 participants has come to an end!
+      <br>During the planning stages, I was freaking out about how I was going to drag myself away for two hours each recording task. But once we got started, I was able to end on a high note with my participants: "We overcame the tool usage issues, the mispronunciations!!! We made this perfect recording together!". 
       </p>
-    </section>
-    <section id="post3">
-      <h2>Post 3</h2>
-      <p>
-        Post 3 content goes here.
-      </p>
-    </section>
-    <section id="post4">
-      <h2>Post 4</h2>
-      <p>
-        Post 4 content goes here.
-      </p>
-    </section>
-  </main>
-  <script src="scripts.js"></script>
-</body>
-</html>
+    </div>
+    
+    <div id="content-2" class="month-content" style="display:none;">
+      <p>2월에는 사랑과 우정을 기리는 발렌타인데이가 있습니다. 이 달에는 이벤트 기획, 선물 추천, 그리고 친구와 가족에게 보내는 감사한 마음을 표현하는 방법들에 대해 알아보았습니다.</p>
+    </div>
+    <div id="content-3" class="month-content" style="display:none;">
+      <p>3월에는 봄이 시작되어 따뜻한 날씨가 찾아옵니다. 이번 달에는 봄철 건강 관리, 야외 활동 추천, 그리고 봄철에 즐길 수 있는 다양한 문화 행사들을 소개하였습니다.</p>
+    </div>
+    </main>
+    <script>
+      showContent(1);
+
+      // 1월의 월 요소에 'selected-month' 클래스를 추가
+      const janElement = document.getElementById('month-1');
+      if (janElement) {
+        janElement.classList.add('selected-month');
+      }
+
+
+      
+      const currentMonth = new Date().getMonth() + 1;
+
+      function hideAllContent() {
+        for (let i = 1; i <= 12; i++) {
+          const contentElement = document.getElementById(`content-${i}`);
+          if (contentElement) {
+            contentElement.style.display = 'none';
+          }
+        }
+      }
+
+      function showContent(month) {
+        hideAllContent();
+        const contentElement = document.getElementById(`content-${month}`);
+        if (contentElement) {
+          contentElement.style.display = 'block';
+        }
+
+        // 선택된 월에 클래스를 추가하고 이전 선택된 월에서 클래스를 제거
+        const prevSelectedMonth = document.querySelector('.selected-month');
+        if (prevSelectedMonth) {
+          prevSelectedMonth.classList.remove('selected-month');
+        }
+        const monthElement = document.getElementById(`month-${month}`);
+        if (monthElement) {
+          monthElement.classList.add('selected-month');
+        }
+      }
+
+      const availableContent = [1, 2, 3];
+
+      for (let i = 1; i <= 12; i++) {
+        const monthElement = document.getElementById(`month-${i}`);
+
+        if (monthElement) {
+          if (i === currentMonth) {
+            monthElement.classList.add('highlight-month');
+          } else if (i > currentMonth) {
+            monthElement.classList.add('future-month');
+          }
+
+          if (availableContent.includes(i)) {
+            monthElement.classList.add('content-available');
+            monthElement.addEventListener('click', (event) => {
+              event.stopPropagation();
+              showContent(i);
+            });
+          }
+        }
+      }
+
+      document.body.addEventListener('click', () => {
+        hideAllContent();
+      });
+
+    </script>
+
+    
+  </body>
+  </html>
+  

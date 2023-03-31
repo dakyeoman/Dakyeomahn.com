@@ -68,3 +68,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+
+function showContent(month) {
+  const contents = document.querySelectorAll('.month-content');
+  contents.forEach(content => {
+    content.style.display = 'none';
+  });
+
+  const contentElement = document.getElementById(`content-${month}`);
+  if (contentElement) {
+    contentElement.style.display = 'block';
+  }
+}
+
+document.querySelectorAll('.month').forEach((monthElement, index) => {
+  monthElement.addEventListener('click', () => {
+    showContent(index + 1);
+  });
+});

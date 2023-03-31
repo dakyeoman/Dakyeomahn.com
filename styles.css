@@ -10,7 +10,8 @@ body {
 }
 
 header {
-  padding: 20px;
+  padding: 0px;
+  margin-top: 10px;
 }
 
 nav {
@@ -35,7 +36,7 @@ h1 {
   text-align: center;
   margin-top: 50px;
   margin-bottom: 50px;
-  font-size: 68px;
+  font-size: 72px;
   font-family: 'Amatic SC', cursive;
 }
 
@@ -74,7 +75,7 @@ main {
 }
 
 .collapsible:hover {
-  color: #ffdc72;
+  color: rgb(251, 158, 57);
 }
 
 .collapsible.active:after {
@@ -114,11 +115,13 @@ p.exp-period {
 }
 
 .column {
-  flex: 50%;
-  padding-right: 20px;
-  text-align:left;
-  flex: 0 0 36%; /* 박스의 너비를 고정하기 위해 flex-basis 값을 설정해줍니다. */
+  flex: 1;
+  max-width: 400px;
   
+  padding: 16px;
+  min-width: calc(100% / 4); /* 최소 너비를 페이지 너비의 1/4로 설정합니다. */
+  margin-bottom: -8px;
+  margin-right: 0px; /* 카드들 사이의 수직 간격을 추가합니다. */
 }
 
 .column ul {
@@ -130,26 +133,29 @@ p.exp-period {
 }
 
 a {
-  color: #333;
   text-decoration: none;
+  color: rgb(88, 148, 134);
+  transition: color 0.5s; /* 컬러 변화에 0.3초간의 transition 효과 적용 */
 }
 
 a:hover {
-  color: #555;
-  text-decoration: underline;
+  color: rgb(251, 158, 57);
 }
 
+
 .post-box {
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 15px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  /*background-color: rgba(255, 255, 255, 0.7);*/
+  padding: 0px;
+  /*box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);*/
   margin-bottom: 10px;
   border-radius: 8px;
   display: inline-block;
   white-space: normal;
   transition: transform 0.3s ease;
-
+  text-align: left;
+  height: 100%;
 }
+
 .post-box:hover {
   transform: translateY(-10px);
 }
@@ -161,12 +167,12 @@ h4.box-title {
   margin-bottom: 4px;
 }
 
+
 .scroll-row {
   display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  width: 100%;
-  scrollbar-width: thin;
+  flex-wrap: wrap; /* 여러 줄에 걸쳐서 나타나도록 설정합니다. */
+  justify-content: center;
+  overflow-x: hidden;
 }
 
 .collapsible-date {
@@ -183,19 +189,243 @@ body {
 }
 
 
-/*blog*/
 
-#post1 {
-  margin-bottom: 20px;
-}
-.toc-toggle:before {
-  content: "+";
-  display: block;
-  font-size: 1.5rem;
-  text-align: center;
-  border: 2px solid black;
-  border-radius: 50%;
-  width: 1.5rem;
-  height: 1.5rem;
+/*blog*/
+/* 포스트 페이지 */
+.post {
+  max-width: 800px;
   margin: 0 auto;
+  padding: 50px;
 }
+
+.post img {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.post h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.post p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.post a {
+  color: #2196F3;
+}
+
+.post a:hover {
+  text-decoration: underline;
+}
+
+
+
+/* 블로그 페이지 */
+.blog {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.blog .toc {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  width: 50px;
+  height: 50px;
+  background-color: #2196F3;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+}
+
+.blog .toc:hover {
+  background-color: #0c7cd5;
+}
+
+.blog .toc i {
+  font-size: 24px;
+}
+
+.blog .toc.active + .toc-content {
+  display: block;
+}
+
+.blog .toc-content {
+  display: none;
+  position: fixed;
+  top: 110px;
+  right: 50px;
+  width: 200px;
+  padding: 20px;
+  background-color: #fff;
+ /* /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+  z-index: 1;
+}
+
+.blog .toc-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.blog .toc-content a {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: rgb(88, 148, 134);
+}
+
+.blog .toc-content a:hover {
+  text-decoration: underline;
+}
+
+/*#table-of-contents {
+  text-align: center;
+  margin-bottom: 12px;
+}*/
+
+
+/*
+.post-title {
+  position:absolute;
+  display: inline-block;
+  width: 200px; /* 타원의 가로 크기 */
+  height: 100px; /* 타원의 세로 크기 */
+  /*background-color: rgba(255, 255, 255, 0.5); 
+  text-align: center;
+}
+
+.post-title h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem; 
+  font-weight: bold;
+  color: #333; 
+}
+
+.ellipse {
+  background-color: rgba(242, 182, 182, 0.3);
+  padding: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 10px;
+  width: 150px;
+  height: 150px;
+
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform: translateX(-50%);
+  transition: background-color 0.5s ease-in-out;
+}
+
+.ellipse:hover {
+  background-color: rgb(155, 197, 255);
+}
+
+.ellipse:hover::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  color: #FFFFFF;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  white-space: nowrap;
+}
+
+.ellipse:hover::before::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #000000 transparent transparent transparent;
+}
+
+.ellipse:hover::before {
+  opacity: 1;
+}
+
+.ellipse h3 {
+  font-size: 1.5rem;
+  margin: 0;
+  text-align: center;
+}
+
+.tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: #ffffff;
+  
+  color: #000000;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: -80%;
+  left: 50%;
+  margin-left: -50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.ellipse:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}*/
+
+#post1 h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10%;
+}
+
+
+
+.month {
+  width: calc(100% / 12);
+  text-align: center;
+  padding: 20px;
+  border-right: 1px solid black;
+  box-sizing: border-box;
+
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.highlight-month {
+  background-color: #3b6fa8;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  padding: 10px 4px;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+
