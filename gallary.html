@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Rubik&display=swap" rel="stylesheet">
+  <link href="https://fonts.google.com/specimen/Mohave?subset=latin&noto.script=Latn" rel="stylesheet">
+  <link href="https://fonts.google.com/specimen/Zen+Kaku+Gothic+New?category=Serif,Sans+Serif&subset=latin&noto.script=Latn" rel="stylesheet">
+  <style>
+        
+
+  </style>
+</head>
+<body>
+    <header>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#project">Project</a></li>
+            <li><a href="#blog">Blog</a></li>
+            
+          </ul>
+        </nav>
+      
+      </header>
+  
+  <div class="gallery">
+    <div class="image-container">
+      <img src="/작업물/자기만의 방 0405.jpeg" alt="Image 1" onclick="openModal('/작업물/자기만의 방 0405.jpeg', 'Description 1')">
+      <p class="caption">Title 1</p>
+    </div>
+    <div class="image-container">
+      <img src="https://via.placeholder.com/500x500.png?text=Image+1" alt="Image 1" onclick="openModal('https://via.placeholder.com/1000x1000.png?text=Image+1', 'Description 1')">
+      <p class="caption">Title 1</p>
+    </div>
+    <div class="image-container">
+      <img src="https://via.placeholder.com/500x500.png?text=Image+1" alt="Image 1" onclick="openModal('https://via.placeholder.com/1000x1000.png?text=Image+1', 'Description 1')">
+      <p class="caption">Title 1</p>
+    </div>
+    <div class="image-container">
+      <img src="https://via.placeholder.com/500x500.png?text=Image+1" alt="Image 1" onclick="openModal('https://via.placeholder.com/1000x1000.png?text=Image+1', 'Description 1')">
+      <p class="caption">Title 1</p>
+    </div>
+
+    <div class="image-container">
+      <img src="/작업물/자기만의 방 0405.jpeg" alt="Image 1" onclick="openModal('/작업물/자기만의 방 0405.jpeg', 'Description 1')">
+      <p class="caption">Title 1</p>
+    </div>
+    <div class="image-container">
+      <img src="https://via.placeholder.com/500x500.png?text=Image+1" alt="Image 1" onclick="openModal('https://via.placeholder.com/1000x1000.png?text=Image+1', 'Description 1')">
+      <p class="caption">Title 1</p>
+    </div>
+    <div class="image-container">
+      <img src="https://via.placeholder.com/500x500.png?text=Image+1" alt="Image 1" onclick="openModal('https://via.placeholder.com/1000x1000.png?text=Image+1', 'Description 1')">
+      <p class="caption">Title 1</p>
+    </div>
+    <div class="image-container">
+      <img src="https://via.placeholder.com/500x500.png?text=Image+1" alt="Image 1" onclick="openModal('https://via.placeholder.com/1000x1000.png?text=Image+1', 'Description 1')">
+      <p class="caption">Title 1</p>
+    </div>
+  </div>
+
+
+
+  <div id="myModal" class="modal" onclick="closeModal()">
+    <img class="modal-content" id="modalImg">
+    <p id="modalCaption"></p>
+  </div>
+</body>
+
+
+<script>
+  function openModal(src, alt) {
+    document.getElementById('myModal').style.display = "block";
+    document.getElementById('modalImg').src = src;
+    document.getElementById('modalCaption').innerHTML = alt;
+  }
+
+  function closeModal() {
+    document.getElementById('myModal').style.display = "none";
+  } 
+</script>
+
+</html>
