@@ -38,8 +38,8 @@
       padding: 5px 10px;
       font-size: 14px;
       color: #333;
-      margin-top: 5px;
-      margin-left: 5px;
+      margin-bottom: 4px;
+      margin-left: 4px;
       width: auto;
     }
     .modal {
@@ -56,8 +56,8 @@
     .modal-content {
       margin: 5% auto;
       display: block;
-      width: 80%;
-      max-width: 700px;
+      width: 100%;
+      max-width: 1000px;
     }
     #modalCaption {
       text-align: center;
@@ -65,6 +65,39 @@
       font-size: 18px;
       padding: 12px 0;
     }
+    .arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    font-weight: bold;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    color: white;
+    font-size: 36px; 
+    cursor: pointer;
+  }
+
+  .left-arrow {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  .right-arrow {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+
+  .arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
   </style>
 </head>
 <body>
@@ -117,7 +150,7 @@
       <p class="caption">#Digital drawing</p>
     </div>
     <div class="image-container">
-      <img src="/works/자기만의 방 0405.jpeg" alt="Image 7" onclick="openModal('/works/자기만의 방 0405.jpeg', 'Description 1')">
+      <img src="/works/Room0405.jpeg" alt="Image 7" onclick="openModal('/works/Room0405.jpeg', 'Description 1')">
       <p class="caption">#Digital Drawing</p>
     </div>
     <div class="image-container">
@@ -128,10 +161,12 @@
       <img src="/works/HandDrawing3.jpeg" alt="Image 9" onclick="openModal('/works/HandDrawing3.jpeg', 'Description 1')">
       <p class="caption">#Hand drawing</p>
     </div>
-  <div id="myModal" class="modal" onclick="closeModal()">
-    <img class="modal-content" id="modalImg">
-    <p id="modalCaption"></p>
-  </div>
+    <div id="myModal" class="modal" onclick="closeModal()">
+      <img class="modal-content" id="modalImg">
+      <p id="modalCaption"></p>
+      <span class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(-1)">&#10094;</span>
+      <span class="arrow right-arrow" onclick="event.stopPropagation(); changeImage(1)">&#10095;</span>
+    </div>
   </div>
 </body>
 
@@ -169,6 +204,67 @@
         console.error("Error fetching the page:", error);
       });
   }
+  let currentImageIndex;
+
+  function openModal(src, alt, index) {
+    currentImageIndex = index;
+    document.getElementById('myModal').style.display = "block";
+    document.getElementById('modalImg').src = src;
+    document.getElementById('modalCaption').innerHTML = alt;
+  }
+
+  // function changeImage(step) {
+  //   const images = [
+  //     {src: '/images/DigitalDrawing3.jpeg', alt: 'Description 1'},
+  //     {src: '/images/DigitalDrawing2.jpeg', alt: 'Description 1'},
+  //     {src: '/images/DigitalDrawing1.jpeg', alt: 'Description 1'},
+  //     {src: '/images/SelfRoom_0405.jpeg', alt: 'Description 1'},
+  //     {src: '/images/HandDrawing2.jpeg', alt: 'Description 1'},
+  //     {src: '/images/HandDrawing3.jpeg', alt: 'Description 1'},
+  //   ];
+  //   currentImageIndex = (currentImageIndex + step + images.length) % images.length;
+  //   document.getElementById('modalImg').src = images[currentImageIndex].src;
+  //   document.getElementById('modalCaption').innerHTML = images[currentImageIndex].alt;
+  // }
+  document.addEventListener("keydown", function (event) {
+    if (event.defaultPrevented) {
+      return;
+    }
+
+    if (document.getElementById("myModal").style.display === "block") {
+      switch (event.key) {
+        case "ArrowLeft":
+          changeImage(-1);
+          break;
+        case "ArrowRight":
+          changeImage(1);
+          break;
+        default:
+          return;
+      }
+    }
+  });
+
+  const imageSrcs = [
+    "/works/BoundGym.png",
+    "/works/DigitalDrawing3.jpeg",
+    "/works/DigitalDrawing2.jpeg",
+    "/works/DigitalDrawing1.jpeg",
+    "/works/Room0405.jpeg",
+    "/works/HandDrawing2.jpeg",
+    "/works/HandDrawing3.jpeg"
+  ];
+
+  function changeImage(direction) {
+    currentImageIndex += direction;
+    if (currentImageIndex < 0) {
+      currentImageIndex = imageSrcs.length - 1;
+    } else if (currentImageIndex >= imageSrcs.length) {
+      currentImageIndex = 0;
+    }
+    document.getElementById('modalImg').src = imageSrcs[currentImageIndex];
+  }
+
 </script>
 
 </html>
