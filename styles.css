@@ -519,3 +519,25 @@ body {
   margin-top: 10px;
   text-align: center;
 }
+
+/* Mobile styles */
+@media screen and (max-width: 767px) {
+  /* Add your mobile-specific styles here */
+}
+
+/* Tablet styles */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  /* Add your tablet-specific styles here */
+}
+
+/* Desktop styles */
+@media screen and (min-width: 1024px) {
+  /* Add your desktop-specific styles here */
+}
+/* Mobile styles */
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 14px;
+    margin: 10px;
+  }
+}
