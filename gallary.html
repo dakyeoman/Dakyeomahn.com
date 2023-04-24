@@ -117,7 +117,7 @@
   <div class="gallery">
     <div class="image-container">
       <a href="/works/A2/index.html">
-        <img src="/works/Random NFT.jpg" alt="Image 1">
+        <img src="/works/Random NFT.jpg" alt="Image 1" >
       </a>
       <p class="caption">#p5js</p>
       <p class="caption" style="margin-left:64px">#Mouse Interaction</p>
@@ -131,56 +131,54 @@
     </div>
 
     <div class="image-container">
-      <img src="/works/BoundGym.png" alt="Image 3" onclick="openModal('/works/BoundGym.png', 'Description 1')">
+      <img src="/works/BoundGym.png" alt="Image 3" onclick="openModal('/works/BoundGym.png', 'Drawing with p5js', 0)">
       <p class="caption">#p5js</p>
       <p class="caption" style="margin-left:64px">#Gym Rat</p>
     </div>
 
     <div class="image-container">
-      <img src="/works/DigitalDrawing3.jpeg" alt="Image 4" onclick="openModal('/works/DigitalDrawing3.jpeg', 'Description 1')">
+      <img src="/works/DigitalDrawing3.jpeg" alt="Image 4" onclick="openModal('/works/DigitalDrawing3.jpeg', 'Digital drawing with Procreate', 1)">
       <p class="caption">#Digital drawing</p>
     </div>
 
     <div class="image-container">
-      <img src="/works/DigitalDrawing2.jpeg" alt="Image 5" onclick="openModal('/works/DigitalDrawing2.jpeg', 'Description 1')">
+      <img src="/works/DigitalDrawing2.jpeg" alt="Image 5" onclick="openModal('/works/DigitalDrawing2.jpeg', 'Digital drawing with Procreate',  2)">
       <p class="caption">#Digital drawing</p>
     </div>
     <div class="image-container">
-      <img src="/works/DigitalDrawing1.jpeg" alt="Image 6" onclick="openModal('/works/DigitalDrawing1.jpeg', 'Description 1')">
+      <img src="/works/DigitalDrawing1.jpeg" alt="Image 6" onclick="openModal('/works/DigitalDrawing1.jpeg', 'Digital drawing with Procreate', 3)">
       <p class="caption">#Digital drawing</p>
     </div>
     <div class="image-container">
-      <img src="/works/Room0405.jpeg" alt="Image 7" onclick="openModal('/works/Room0405.jpeg', 'Description 1')">
+      <img src="/works/Room0405.jpeg" alt="Image 7" onclick="openModal('/works/Room0405.jpeg', 'Digital drawing with Procreate', 4)">
       <p class="caption">#Digital Drawing</p>
     </div>
     <div class="image-container">
-      <img src="/works/HandDrawing2.jpeg" alt="Image 8" onclick="openModal('/works/HandDrawing2.jpeg', 'Description 1')">
+      <img src="/works/HandDrawing2.jpeg" alt="Image 8" onclick="openModal('/works/HandDrawing2.jpeg', 'Hand drawing', 5)">
       <p class="caption">#Hand drawing</p>
     </div>
     <div class="image-container">
-      <img src="/works/HandDrawing3.jpeg" alt="Image 9" onclick="openModal('/works/HandDrawing3.jpeg', 'Description 1')">
+      <img src="/works/HandDrawing3.jpeg" alt="Image 9" onclick="openModal('/works/HandDrawing3.jpeg', 'Hand drawing', 6)">
       <p class="caption">#Hand drawing</p>
     </div>
     <div id="myModal" class="modal" onclick="closeModal()">
-      <img class="modal-content" id="modalImg">
-      <p id="modalCaption"></p>
       <span class="arrow left-arrow" onclick="event.stopPropagation(); changeImage(-1)">&#10094;</span>
+      <img class="modal-content" id="modalImg">
       <span class="arrow right-arrow" onclick="event.stopPropagation(); changeImage(1)">&#10095;</span>
+      <p id="modalCaption"></p>
     </div>
+    
   </div>
 </body>
 
 
 <script>
-  function openModal(src, alt) {
-    document.getElementById('myModal').style.display = "block";
-    document.getElementById('modalImg').src = src;
-    document.getElementById('modalCaption').innerHTML = alt;
-  }
 
-  function closeModal() {
-    document.getElementById('myModal').style.display = "none";
-  } 
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+  document.querySelector(".left-arrow").style.display = "none";
+  document.querySelector(".right-arrow").style.display = "none";
+}
   function fetchCanvasFromPage(url) {
     fetch(url)
       .then((response) => response.text())
@@ -207,45 +205,33 @@
   let currentImageIndex;
 
   function openModal(src, alt, index) {
-    currentImageIndex = index;
-    document.getElementById('myModal').style.display = "block";
-    document.getElementById('modalImg').src = src;
-    document.getElementById('modalCaption').innerHTML = alt;
-  }
+  document.getElementById("myModal").style.display = "block";
+  document.getElementById("modalImg").src = src;
+  document.getElementById("modalCaption").innerHTML = alt;
+  document.querySelector(".left-arrow").style.display = "block";
+  document.querySelector(".right-arrow").style.display = "block";
+  currentIndex = index;
+}
 
-  // function changeImage(step) {
-  //   const images = [
-  //     {src: '/images/DigitalDrawing3.jpeg', alt: 'Description 1'},
-  //     {src: '/images/DigitalDrawing2.jpeg', alt: 'Description 1'},
-  //     {src: '/images/DigitalDrawing1.jpeg', alt: 'Description 1'},
-  //     {src: '/images/SelfRoom_0405.jpeg', alt: 'Description 1'},
-  //     {src: '/images/HandDrawing2.jpeg', alt: 'Description 1'},
-  //     {src: '/images/HandDrawing3.jpeg', alt: 'Description 1'},
-  //   ];
-  //   currentImageIndex = (currentImageIndex + step + images.length) % images.length;
-  //   document.getElementById('modalImg').src = images[currentImageIndex].src;
-  //   document.getElementById('modalCaption').innerHTML = images[currentImageIndex].alt;
-  // }
-  document.addEventListener("keydown", function (event) {
-    if (event.defaultPrevented) {
-      return;
-    }
 
-    if (document.getElementById("myModal").style.display === "block") {
-      switch (event.key) {
-        case "ArrowLeft":
-          changeImage(-1);
-          break;
-        case "ArrowRight":
-          changeImage(1);
-          break;
-        default:
-          return;
-      }
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') {
+      changeImage(-1);
+    } else if (event.key === 'ArrowRight') {
+      changeImage(1);
     }
   });
 
-  const imageSrcs = [
+  document.addEventListener("keydown", function(event) {
+  if (event.key === "ArrowLeft") {
+    changeImage(-1);
+  } else if (event.key === "ArrowRight") {
+    changeImage(1);
+  }
+});
+
+  function changeImage(step) {
+  const images = [
     "/works/BoundGym.png",
     "/works/DigitalDrawing3.jpeg",
     "/works/DigitalDrawing2.jpeg",
@@ -254,16 +240,31 @@
     "/works/HandDrawing2.jpeg",
     "/works/HandDrawing3.jpeg"
   ];
+  currentIndex += step;
+  if (currentIndex < 0) {
+    currentIndex = images.length - 1;
+  } else if (currentIndex >= images.length) {
+    currentIndex = 0;
+  }
+
+  document.getElementById("modalImg").src = images[currentIndex];
+}
 
   function changeImage(direction) {
-    currentImageIndex += direction;
-    if (currentImageIndex < 0) {
-      currentImageIndex = imageSrcs.length - 1;
-    } else if (currentImageIndex >= imageSrcs.length) {
-      currentImageIndex = 0;
+    const imgSrc = document.getElementById("modalImg").src;
+    const index = images.findIndex((image) => image.src === imgSrc);
+    if (index !== -1) {
+      let newIndex = index + direction;
+      if (newIndex < 0) {
+        newIndex = images.length - 1;
+      } else if (newIndex >= images.length) {
+        newIndex = 0;
+      }
+      document.getElementById("modalImg").src = images[newIndex].src;
+      document.getElementById("modalCaption").innerHTML = images[newIndex].alt;
     }
-    document.getElementById('modalImg').src = imageSrcs[currentImageIndex];
   }
+
 
 </script>
 
