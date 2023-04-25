@@ -1,29 +1,4 @@
-const collapsibles = document.querySelectorAll(".collapsible");
-let timer;
 
-collapsibles.forEach((collapsible) => {
-  collapsible.addEventListener("mouseover", function () {
-    timer = setTimeout(() => {
-      this.classList.add("active");
-      const content = this.nextElementSibling;
-      content.style.maxHeight = content.scrollHeight + "px";
-    }, 200); // 0.5초 이상 기다리도록 설정
-  });
-
-  collapsible.addEventListener("mouseout", function () {
-    clearTimeout(timer);
-  });
-
-  collapsible.addEventListener("click", function () {
-    this.classList.toggle("active");
-    const content = this.nextElementSibling;
-    if (content.style.maxHeight) {
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    }
-  });
-});
 
 function smoothScroll(element, target, duration) {
   const startPosition = element.scrollLeft;
@@ -209,3 +184,6 @@ modal.addEventListener('click', function (event) {
     });
   }
 });
+
+
+

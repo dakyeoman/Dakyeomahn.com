@@ -6,8 +6,12 @@
 
 body {
   font-family: 'Rubik', sans-serif;
-  text-align:justify
+  text-align: justify;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding-bottom: 50px;
 }
+
 
 header {
   padding: 0px;
@@ -63,7 +67,18 @@ main {
   font-size: 16px;
   margin-top: 4px;
   font-weight:bold;
-  
+}
+/* 
+.collapsible {
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 5px;
+} */
+
+.content {
+  display: none;
+  overflow: hidden;
+  font-size: 14px;
 }
 
 .collapsible:after {
@@ -96,8 +111,6 @@ main {
   margin-bottom: 12px;
 }
 
-
-
 p.exp-period { 
   font-size: 12px;
   color: gray
@@ -108,6 +121,8 @@ p.exp-period {
   height: auto;
 }
 
+
+
 .row {
   display: flex;
   overflow-x: auto;
@@ -117,7 +132,6 @@ p.exp-period {
 .column {
   flex: 1;
   max-width: 400px;
-  
   padding: 16px;
   min-width: calc(100% / 4); /* 최소 너비를 페이지 너비의 1/4로 설정합니다. */
   margin-bottom: -8px;
@@ -181,14 +195,6 @@ h4.box-title {
   font-size: 14px;
   margin-top: 0px;
 }
-
-
-body {
-  /* 기존 스타일 코드들은 그대로 유지하고 아래 한 줄을 추가하세요 */
-  padding-bottom: 50px; /* 원하는 여유 공간 크기로 조절하세요 */
-}
-
-
 
 /*blog*/
 /* 포스트 페이지 */
@@ -324,10 +330,6 @@ body {
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, sans-serif;
-}
-
 .gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -409,16 +411,21 @@ body {
 }
 
 /* Mobile styles */
-@media screen and (max-width: 767px) {
-  /* Add your mobile-specific styles here */
+@media screen and (max-width: 400px) {
+  body {
+      margin-left: 0;
+      margin-right: 0;
+  }
 }
 
-/* Tablet styles */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  /* Add your tablet-specific styles here */
+
+/*project*/
+/* 기존 CSS 코드를 유지하고 아래 코드를 추가하세요. */
+
+.column-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 20px;
 }
 
-/* Desktop styles */
-@media screen and (min-width: 1024px) {
-  /* Add your desktop-specific styles here */
-}
